@@ -24,7 +24,7 @@ export class ListItemModal implements OnInit {
   }
 
   save() {
-    this.modalController.dismiss({
+    const dismissObj = {
       itemList: this.itemList,
       /*
         You pass back either a newItem or editItem value depending on whether an edit operation is taking place
@@ -32,7 +32,8 @@ export class ListItemModal implements OnInit {
       */
       newItem: !this.editItem ? this.item : null,
       editItem: this.editItem ? this.item : null
-    });
+    }
+    this.modalController.dismiss(dismissObj);
   };
 
   cancel() {
